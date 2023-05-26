@@ -3,9 +3,9 @@ const dbConnect = require('./dbConnect')
 const app = express();
 const cors = require('cors');
 const userRoute = require('./routes/userRoute');
-const port = process.env.port;
+// const port = process.env.port;
 
-require('dotenv').config({path: '.env'});
+require('dotenv').config();
 
 app.use(cors());
 
@@ -76,4 +76,4 @@ app.use(express.static(__dirname + '/public'))
 
 
 app.get('/', (req, res)=> res.send('Hello World'))
-app.listen(port,() => console.log(`Node JS server is started at ${port}!`));
+app.listen(process.env.PORT,() => console.log(`Node JS server is started at ${process.env.PORT}!`));
